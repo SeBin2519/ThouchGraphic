@@ -25,7 +25,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:textAppearance="?android:textAppearanceLarge"/>
+            android:textAppearance="?android:textAppearanceLarge"
+            android:onClick="drawShape"
+            /><!--onClick: 감시자, 처리자 설정/ 핸들러 메소드-->
 
         <Button
             android:id="@+id/but_rect"
@@ -34,6 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:textAppearance="?android:textAppearanceLarge"
+            android:onClick="drawShape"
             />
 
         <Button
@@ -42,7 +45,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:textAppearance="?android:textAppearanceLarge"/>
+            android:textAppearance="?android:textAppearanceLarge"
+            android:onClick="drawShape"
+            />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/linear_view"
@@ -50,6 +55,5 @@
         android:layout_height="match_parent"
         android:orientation="horizontal"
         >
-
     </LinearLayout>
 </LinearLayout>

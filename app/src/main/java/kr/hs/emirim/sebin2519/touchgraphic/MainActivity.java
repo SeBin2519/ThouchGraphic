@@ -14,7 +14,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(new DrawShape(getApplicationContext()));
+        setContentView(R.layout.activity_main);//setContentView(new DrawShape(getApplicationContext()));
+    }
+
+    public void drawShape(View v){ //핸들러 메소드
+
     }
 
     class DrawShape extends View{//내부클래스
