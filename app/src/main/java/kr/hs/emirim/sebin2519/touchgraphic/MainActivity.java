@@ -8,17 +8,26 @@ import android.hardware.display.VirtualDisplay;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity {
+    DrawShape ds;//DrawShape을 저장하는, 참조하는 변수
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);//setContentView(new DrawShape(getApplicationContext()));
+        ds=new DrawShape(getApplicationContext());
+        LinearLayout linear = (LinearLayout) findViewById(R.id.linear_view);//LinearLayout을 참조하는 참조변수
+        linear.addView(ds);
     }
 
     public void drawShape(View v){ //핸들러 메소드
-
+        switch (v.getId()){
+            case R.id.but_line: break;
+            case R.id.but_rect: break;
+            case R.id.but_cir: break;
+        }
     }
 
     class DrawShape extends View{//내부클래스
