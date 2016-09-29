@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity {
+    static final int LINE=1, RECT=2, CIRCLE=3;
+    int chooseShape=CIRCLE;
     DrawShape ds;//DrawShape을 저장하는, 참조하는 변수
 
     @Override
@@ -24,10 +26,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void drawShape(View v){ //핸들러 메소드
         switch (v.getId()){
-            case R.id.but_line: break;
-            case R.id.but_rect: break;
-            case R.id.but_cir: break;
+            case R.id.but_line:
+                chooseShape=LINE;
+                break;
+            case R.id.but_rect:
+                chooseShape=RECT;
+                break;
+            case R.id.but_cir:
+                chooseShape=CIRCLE;
+                break;
         }
+        ds.invalidate(); //ondraw() 다시 호출
     }
 
     class DrawShape extends View{//내부클래스
@@ -43,11 +52,20 @@ public class MainActivity extends AppCompatActivity {
             paint.setStrokeWidth(3);
             paint.setColor(Color.RED);
             paint.setStyle(Paint.Style.STROKE);
-            canvas.drawCircle(cx,cy,200,paint);
 
-            paint.setColor(Color.MAGENTA);
-            paint.setStyle(Paint.Style.FILL);
-            canvas.drawRect(100,100,500,250,paint);//1.사각형의 영역지정, 좌표를 가지고 설정(x,y,가로,세로,그리기 객체)
+            switch(chooseShape){
+                case LINE: canvas.drawLine(50,100,600,650,paint); break; //선분좌표
+                case RECT:
+                    paint.setColor(Color.MAGENTA);
+                    paint.setStyle(Paint.Style.FILL);
+                    canvas.drawRect(100,100,500,250,paint); //1.사각형의 영역지정, 좌표를 가지고 설정(x,y,가로,세로,그리기 객체)
+                    break;
+                case CIRCLE: canvas.drawCircle(cx,cy,200,paint); break;
+            }
+
+
+
+
         }
     }
 }
